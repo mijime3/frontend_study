@@ -7,29 +7,30 @@
             title: 'do domething!',
             completed: false
         },
-        validate: function(attrs) {
-            if (_.isEmpty(attrs.title)) {
-                return 'title must not be empty!';
-            }
+
+    });
+
+    var task = new Task();
+
+    // View
+
+    var TaskView = Backbone.View.extend({
+        tagName: 'li',
+        events: {
+            "click .command": "sayHello"
         },
-        toggle: function() {
-            this.set('completed', !this.get('completed'));
+        sayHello: function() {
+            alert('hello!');
+        },
+        template: _.template($('#task-template').html()),
+        render: function() {
+            var template = this.template(this.model.toJSON());
+            this.$el.html(template);
+            return this;
         }
     });
-
-    var task1 = new Task({
-        completed: true
-    });
-
-    //task1.set('title', 'newTitle');
-    //var title = task1.get('title');
-    //
-    //console.log(task1.toJSON());
-    //console.log(title);
-
-    console.log(task1.toJSON());
-    task1.set({title: ''}, {validate: true});
-    //task1.toggle();
-    console.log(task1.toJSON());
+    var taskView = new TaskView({model: task});
+    console.log(taskView.render().el);
+    $('body').append(taskView.render().el);
 
 })();
