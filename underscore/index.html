@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>underscore.js</title>
+</head>
+<body>
+    <script src="underscore.js"></script>
+    <script>
+        (function() {
+            
+            console.log('_.shuffle()');
+            var x;
+            x = _.shuffle([2,8,10,3]);
+            console.log(x);
+
+            console.log('_().shuffle()');
+            x = _([2,8,10,3]).shuffle();
+            console.log(x);
+            
+            console.log('_.each()');
+            _.each([2,5,8], function(num) {
+                console.log(num*num);
+            });
+
+            console.log('_.map()');
+            var map = _.map([2,5,8], function(num) {
+                return num*num;
+            });
+            console.log(map);
+
+        })();
+    </script>
+</body>
+</html>
