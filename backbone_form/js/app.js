@@ -42,7 +42,7 @@
             $('#name').val(user1.get('name'));
             $('#mail').val(user1.get('mail'));
             $('#error').empty();
-        },
+        }
     })
 
     var addUserView = new AddUserView();
