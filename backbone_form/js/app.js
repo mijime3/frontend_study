@@ -35,7 +35,7 @@
             var user = new User();
             if (user.set({name: $('#name').val(), mail: $('#mail').val()}, {validate:true})) {
                 $('#error').empty();
-                alert('Add user: name=[' + user.get('name') + '], mail=[' + user.get('mail') + ']');
+                alert('Add user: '+JSON.stringify(user.toJSON(), null, "    "));
             }
         },
         loadUser: function() {
